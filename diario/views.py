@@ -4,12 +4,13 @@ from .models import Pessoa, Diario
 
 # Create your views here.
 def home(request):
-    return render(request, 'home.html')
+    textos = Diario.objects.all().order_by('create_at')[:3]
+    return render(request, 'home.html', {'textos': textos})
 
 def escrever(request):
     if request.method == 'GET':
         pessoas = Pessoa.objects.all()
-
+        
         return render(request, 'escrever.html', {'pessoas': pessoas})
     elif request.method == 'POST':
         titulo = request.POST.get('titulo')
@@ -24,7 +25,8 @@ def escrever(request):
             titulo=titulo,
             texto=texto
         )
-    
+
+        diario.set_tags(tags)
         diario.save()
 
         for i in pessoas:
