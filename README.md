@@ -18,12 +18,6 @@ Este é um projeto desenvolvido com Django 5.1 que permite criar e visualizar en
 - HTML5
 - SQLite (padrão do Django)
 
-## 📸 Tela inicial
-
-> Página inicial exibindo os últimos 3 registros do diário:
-
-![Exemplo de entrada do diário](media/foto/foto.png)
-
 ## 📂 Estrutura de diretórios (parcial)
 
 ```
